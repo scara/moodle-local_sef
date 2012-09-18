@@ -41,7 +41,7 @@ RewriteBase /moodle/
 # calendar/<id, i.e. Moodle magic number>/<whatever you want for a SEF URL>
 #
 RewriteCond %{REQUEST_URI}                      calendar/([\d]+)
-RewriteRule calendar/([\d]+)                    calendar/view.php?id=$1 [L,QSA]
+RewriteRule calendar/([\d]+)                    calendar/view.php?course=$1 [L,QSA]
 #
 ######################################################################
 
