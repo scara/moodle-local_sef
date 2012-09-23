@@ -69,17 +69,14 @@ RewriteRule course/([^/$]+)                     course/view.php?name=$1 [L,QSA]
 #
 ######################################################################
 
-###############################  USER  ###############################
-
-# user/<id, i.e. Moodle magic number>
-# user/<id, i.e. Moodle magic number>/<whatever you want for a SEF URL>
-#
-RewriteCond %{REQUEST_URI}                      user/([\d]+)
-RewriteRule user/([\d]+)                        user/view.php?id=$1 [L,QSA]
-#
-######################################################################
-
 ##############################  FORUM  ###############################
+
+# forums/<course id, i.e. Moodle magic number>
+# forums/<course id, i.e. Moodle magic number>/<whatever you want for a SEF URL>
+#
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule forums/([\d]+)                      mod/forum/index.php?id=$1 [L,QSA]
 
 # forum/{id,f}/<value of the provided key>
 # forum/{id,f}/<value of the provided key>/<whatever you want for a SEF URL>
@@ -108,9 +105,36 @@ RewriteRule resource/(id|r)/([^/$]+)            mod/resource/view.php?$1=$2 [L,Q
 #
 ######################################################################
 
+################################  TAG  ###############################
+
+# tag/<id, i.e. Moodle magic number>
+# tag/<id, i.e. Moodle magic number>/<whatever you want for a SEF URL>
+#
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule tag/([\d]+)                         tag/index.php?id=$2 [L,QSA]
+#
+######################################################################
+
+###############################  USER  ###############################
+
+# users/<course id, i.e. Moodle magic number>
+# users/<course id, i.e. Moodle magic number>/<whatever you want for a SEF URL>
+#
+RewriteCond %{REQUEST_URI}                      users/([\d]+)
+RewriteRule users/([\d]+)                       user/index.php?id=$1 [L,QSA]
+
+# user/<id, i.e. Moodle magic number>
+# user/<id, i.e. Moodle magic number>/<whatever you want for a SEF URL>
+#
+RewriteCond %{REQUEST_URI}                      user/([\d]+)
+RewriteRule user/([\d]+)                        user/view.php?id=$1 [L,QSA]
+#
+######################################################################
+
 #########################  GENERIC ACTIVITY  #########################
 #
-# activity name:
+# Activity name:
 #   assignment, assign, book, chat, choice, data, feedback, folder,
 #   forum, glossary, imscp, label, lesson, lti, page, quiz,
 #   resource, scorm, survey, url, wiki, workshop,
