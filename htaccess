@@ -17,10 +17,10 @@
 
 #
 # SEF URLs support
-# $Id$
 #
 # @package    local
 # @subpackage sef
+# @version    2012100900.00
 # @author     Matteo Scaramuccia <moodle@matteoscaramuccia.com>
 # @copyright  Copyright (C) 2012 Matteo Scaramuccia
 # @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
